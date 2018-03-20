@@ -16,6 +16,15 @@ app.get("/", (request, response) => {
     .catch(console.error);
 });
 
+app.post("/", (request, response) => {
+  queries
+    .create(request)
+    .then(userdata => {
+      response.json({ userdata });
+    })
+    .catch(console.error);
+});
+
 app.post("/", (req, res) => {
   res.json("POST worked!");
 });

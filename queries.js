@@ -10,15 +10,15 @@ module.exports = {
       .where("id", id)
       .first();
   },
-  create(resolution) {
+  create(data) {
     return database("userdata")
-      .insert(resolution)
+      .insert(data)
       .returning("*")
       .then(record => record[0]);
   },
-  update(id, resolution) {
+  update(id, data) {
     return database("userdata")
-      .update(resolution)
+      .update(data)
       .where("id", id)
       .returning("*")
       .then(record => record);
