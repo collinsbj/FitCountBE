@@ -18,7 +18,7 @@ app.get("/", (request, response) => {
 
 app.post("/", (request, response) => {
   queries
-    .create(request)
+    .create(request.body)
     .then(userdata => {
       response.json({ userdata });
     })
