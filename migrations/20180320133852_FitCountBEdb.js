@@ -3,8 +3,8 @@ exports.up = function(knex, Promise) {
     data.string("userName");
     data.string("password");
     data.integer("totalFitCount");
-    data.decimal("gymLat");
-    data.decimal("gymLon");
+    data.decimal("gymLat", null);
+    data.decimal("gymLon", null);
     data.string("gymName");
     data.string("firstName");
     data.string("lastName");

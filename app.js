@@ -20,13 +20,36 @@ app.post("/", (request, response) => {
   queries
     .create(request.body)
     .then(userdata => {
-      response.json({ userdata });
+      response.json(userdata);
     })
     .catch(console.error);
 });
 
-app.post("/", (req, res) => {
-  res.json("POST worked!");
+app.get("/:username", (request, response) => {
+  queries
+    .read(request.params.username)
+    .then(data => {
+      data ? response.json(data) : response.sendStatus(404);
+    })
+    .catch(console.error);
+});
+
+app.put("/:username", (request, response) => {
+  queries
+    .update(request.params.username, request.body)
+    .then(data => {
+      response.json(data[0]);
+    })
+    .catch(console.error);
+});
+
+app.delete("/:username", (request, response) => {
+  queries
+    .delete(request.params.username)
+    .then(() => {
+      response.sendStatus(204);
+    })
+    .catch(console.error);
 });
 
 app.listen(process.env.PORT || 3000);
