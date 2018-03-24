@@ -7,7 +7,7 @@ module.exports = {
   read(username) {
     return database("userdata")
       .select()
-      .where("username", username)
+      .where("userName", username)
       .first();
   },
   create(data) {
@@ -19,13 +19,13 @@ module.exports = {
   update(username, data) {
     return database("userdata")
       .update(data)
-      .where("username", username)
+      .where("userName", username)
       .returning("*")
       .then(record => record);
   },
   delete(username) {
     return database("userdata")
       .delete()
-      .where("username", username);
+      .where("userName", username);
   }
 };
