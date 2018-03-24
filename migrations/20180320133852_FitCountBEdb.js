@@ -1,7 +1,15 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("userdata", data => {
-    data.increments("id");
-    data.string("placeholder");
+    data.string("userName");
+    data.string("password");
+    data.integer("totalFitCount");
+    data.decimal("gymLat");
+    data.decimal("gymLon");
+    data.string("gymName");
+    data.string("firstName");
+    data.string("lastName");
+    data.string("email");
+    data.json("fitCountHistory");
   });
 };
 

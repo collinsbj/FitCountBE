@@ -11,7 +11,7 @@ app.get("/", (request, response) => {
   queries
     .list()
     .then(userdata => {
-      response.json({ userdata });
+      response.json(userdata);
     })
     .catch(console.error);
 });

@@ -5,12 +5,18 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex("userdata").insert([
-        { id: 1, placeholder: "rowValue1" },
-        { id: 2, placeholder: "rowValue2" },
-        { id: 3, placeholder: "rowValue3" }
+        {
+          userName: "bjcollins",
+          password: "password123",
+          totalFitCount: 1234,
+          fitCountHistory: { "01-02-18": 45, "02-03-18": 35, "03-04-18": 55 },
+          gymLat: 40.586194,
+          gymLon: -105.043533,
+          gymName: "Miramont Lifestyle Fitness - North",
+          firstName: "BJ",
+          lastName: "Collins",
+          email: "CollinsBJ@me.com"
+        }
       ]);
-    })
-    .then(() => {
-      return knex.raw("ALTER SEQUENCE userdata_id_seq RESTART WITH 4;");
     });
 };
