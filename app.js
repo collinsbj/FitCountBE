@@ -29,7 +29,7 @@ app.get("/:username", (request, response) => {
   queries
     .read(request.params.username)
     .then(data => {
-      data ? response.json(data) : response.send("Data not found");
+      data ? response.json(data) : response.sendStatus(404);
     })
     .catch(console.error);
 });
